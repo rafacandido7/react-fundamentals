@@ -1,6 +1,7 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
-function Post(props) {
+export default function Post(props) {
   const post = props.post
 
   return (
@@ -8,10 +9,18 @@ function Post(props) {
       <article>
         <strong>{post.title}</strong> <br />
         <small>{post.subtitle}</small>
+        <br />
+        Média: {props.likes / 2}
       </article>
       <br />
     </>
   )
 }
 
-export default Post
+Post.propTypes = {
+  likes: PropTypes.number.isRequired,
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+  }).isRequired,
+}
