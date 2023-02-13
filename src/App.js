@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import Header from './components/Header'
 import Post from './components/Post'
+import { ThemeProvider } from './context/ThemeContext'
+
+export const ThemeContext = createContext('dark')
 
 function App() {
+
   const [posts, setPosts] = useState([
     { id: Math.random(), title: 'Title#01', subtitle: 'Subtitle#01', likes: 50, read: false },
     { id: Math.random(), title: 'Title#02', subtitle: 'Subtitle#02', likes: 12, read: true },
@@ -19,29 +23,26 @@ function App() {
         likes: 50,
         read: false
       }
-      ]
+    ]
     )
   }
 
-  function handleRemovePost (postId) {
+  function handleRemovePost(postId) {
     setPosts((prevState) => (
       prevState.filter(post => post.id !== postId)
-      ))
+    ))
   }
 
 
-  console.log({ posts })
-
 
   return (
-    <>
-      <Header >
+    <ThemeProvider>
+      <Header>
         <h2>
-          Posts da semanaa
+          Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>
       </Header>
-
       <hr />
 
       {posts.map(post => (
@@ -50,8 +51,9 @@ function App() {
           onRemove={handleRemovePost}
           post={post}
         />
-      ))}
-    </>
+      ))
+      }
+    </ThemeProvider>
   )
 }
 
