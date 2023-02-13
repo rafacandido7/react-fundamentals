@@ -10,7 +10,8 @@ function App() {
   ])
 
   function handleRefresh() {
-    setPosts((prevState) => [...prevState,
+    setPosts((prevState) => [
+      ...prevState,
       {
         id: Math.random(),
         title: `Title#0${prevState.length + 1}`,
@@ -19,6 +20,12 @@ function App() {
       }
       ]
     )
+  }
+
+  function handleRemovePost (postId) {
+    setPosts((prevState) => (
+      prevState.filter(post => post.id !== postId)
+      ))
   }
 
 
@@ -39,7 +46,9 @@ function App() {
       {posts.map(post => (
         <Post
           key={post.id}
+          onRemove={handleRemovePost}
           post={{
+            id: post.id,
             title: post.title,
             subtitle: post.subtitle
           }}
