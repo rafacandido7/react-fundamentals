@@ -13,7 +13,8 @@ module.exports = {
     new HTMLWebpackPlugin ({
       template: path.resolve(__dirname, 'public', 'index.html')
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+
   ],
   module: {
     rules: [
@@ -21,6 +22,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },

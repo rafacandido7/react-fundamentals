@@ -8,12 +8,7 @@ export default function Header(props) {
   const { onToggleTheme } = useContext(ThemeContext)
 
   return (
-    <div
-      style={{
-        background: '#ccc',
-        fontFamily: 'sans-serif'
-      }}
-    >
+    <div>
       <h1>{props.title}</h1>
       <Button
         onClick={onToggleTheme}
@@ -31,5 +26,5 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  title: `JStack's blogg`
+  title: `JStack's blog`
 }
