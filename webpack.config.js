@@ -10,7 +10,7 @@ module.exports = {
   },
   mode: 'development',
   plugins: [
-    new HTMLWebpackPlugin ({
+    new HTMLWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html')
     }),
     new CleanWebpackPlugin(),
@@ -25,7 +25,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          }
+        ]
       }
     ]
   },
