@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types';
-import PostHeader from "./PostHeader";
+import PostHeader from "../PostHeader";
 
 export default function Post(props) {
   const post = props.post
