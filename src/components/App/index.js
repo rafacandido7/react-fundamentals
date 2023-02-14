@@ -1,7 +1,7 @@
 import React, { useState, createContext } from 'react'
-import Header from './components/Header'
-import Post from './components/Post'
-import { ThemeProvider } from './context/ThemeContext'
+import Header from '../Header'
+import Post from '../Post'
+import { ThemeProvider } from '../../context/ThemeContext'
 
 export const ThemeContext = createContext('dark')
 

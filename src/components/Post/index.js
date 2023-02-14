@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types';
+
 import PostHeader from "../PostHeader";
 
 import styles from './styles.scss'
@@ -7,7 +8,6 @@ import styles from './styles.scss'
 export default function Post(props) {
   const post = props.post
 
-  console.log(post)
   return (
     <article
     className={
